@@ -1,0 +1,9 @@
+(les clés id sont créées automatiquement en fonction des valeurs dans les champs de clés primaires, ex : id_mat est combinaison
+de titre, début et fin)
+
+utilisateurs : id_util, mdp, mail, nom, prénom        (utiliser héritage pour prof, etudiant, visiteur (et admin) )
+
+matières : id_mat, titre, début, fin, prof->id_prof
+mat_etu : mat->id_mat, etu->id_etu			(car 1...* de chaque côté)
+epreuves : id_epr, titre, date, matière->id_mat
+notes : id_note, note, eleve->id_etu, epreuve->id_epr
