@@ -13,3 +13,7 @@
  *= require_tree .
  *= require_self
  */
+
+.new_user{
+	background-color: yellow;
+}
