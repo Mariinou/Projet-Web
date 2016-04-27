@@ -4,6 +4,8 @@ class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
 
   helper_method :admin?
+  heper_method :enseignant?
+  helper_method :etudiant?
 
     after_filter :store_location
 
@@ -36,6 +38,15 @@ class ApplicationController < ActionController::Base
         else
             false
         end
+    end
+
+    def enseignant?
+        if current_user.kind_of? Enseignant
+            
+    end
+
+    def etudiant?
+
     end
 
     #Méthode qui authorise l'accès sinon redirige
