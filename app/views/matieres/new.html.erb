@@ -1,0 +1,23 @@
+<h2>Nouvelle matière</h2>
+
+<%= form_for @matiere do |f| %>
+ <%= f.collection_select :user_id, User.where(type:'Enseignant'), :id, :prenom_et_nom, include_blank: 'Sélectionnez un professeur' %>
+ <br />
+ <br />
+  <%= f.label :Date_de_début%>
+        <br />
+   <%= f.date_field :debut %>
+
+ <br />
+ <br />
+  <%= f.label :Date_de_fin%>
+        <br />
+   <%= f.date_field :fin %>
+
+ <br />
+ <br />
+
+<%= f.text_field :titre, placeholder: "Matière"%>
+<%= f.submit "Enregistrer"%>
+<% end %>
+<%= link_to "Retour", :back%>

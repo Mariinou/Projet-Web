@@ -1,0 +1,9 @@
+<% for @matiere in @matiere_list %>
+    titre : <%= @matiere.titre %>
+    </br>
+    période : du <%= @matiere.debut %> au <%= @matiere.fin %>
+    </br>
+    enseignant : <%= User.find(@matiere.user_id).nom %> <%= User.find(@matiere.user_id).prenom %>
+    </br>
+    </br>
+  <% end %>
