@@ -22,8 +22,8 @@ development:
   database: projet_web_development
   pool: 5
   host: localhost
-  username: marie
-  password: Marinou2-5
+  username: ruby
+  password: ruby
 
   # Connect on a TCP socket. Omitted by default since the client uses a
   # domain socket that doesn't need configuration. Windows does not have
@@ -54,8 +54,8 @@ test:
   database: projet_web_test
   host: localhost
   pool: 5
-  username: marie
-  password: Marinou2-5
+  username: ruby
+  password: ruby
 
 production:
   adapter: postgresql
@@ -63,5 +63,5 @@ production:
   database: projet_web_production
   host: localhost
   pool: 5
-  username: marie
-  password: 123soleil
+  username: ruby
+  password: ruby
