@@ -9,3 +9,4 @@
 User.create!(nom: 'paul', prenom: 'choux', email: 'patate@gpol.fr', type: 'Etudiant', password: 'Patate12')
 User.create!(nom: 'titeuf', prenom: 'cool', email: 'prof@lycee.com', type: 'Enseignant', password: 'Prof31')
 User.create!(nom: 'dupont', prenom: 'bois', email: 'admin@force.fr', type: 'Administrateur', password: 'thebest')
+Matiere.create!(titre: 'Mathématiques', debut: DateTime.strptime("02/09/2016","%d/%m/%Y"), fin: DateTime.strptime("02/01/2017","%d/%m/%Y"), user_id: User.where(nom: 'titeuf').where(prenom: 'cool').ids)

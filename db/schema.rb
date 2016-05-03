@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160503151315) do
+ActiveRecord::Schema.define(version: 20160503185917) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -48,9 +48,11 @@ ActiveRecord::Schema.define(version: 20160503151315) do
     t.integer  "enseignant_id"
     t.datetime "created_at",    null: false
     t.datetime "updated_at",    null: false
+    t.integer  "user_id"
   end
 
   add_index "matieres", ["enseignant_id"], name: "index_matieres_on_enseignant_id", using: :btree
+  add_index "matieres", ["user_id"], name: "index_matieres_on_user_id", using: :btree
 
   create_table "matières", force: :cascade do |t|
     t.string   "titre"
@@ -95,6 +97,7 @@ ActiveRecord::Schema.define(version: 20160503151315) do
 
   add_foreign_key "epreuves", "matieres"
   add_foreign_key "matieres", "enseignants"
+  add_foreign_key "matieres", "users"
   add_foreign_key "notes", "matieres"
   add_foreign_key "notes", "users"
 end

@@ -4,8 +4,7 @@ class CreateMatieres < ActiveRecord::Migration
       t.string :titre
       t.date :debut
       t.date :fin
-      t.references :enseignant, index: true, foreign_key: true
-
+     t.references :enseignant, index: true, foreign_key: true
       t.timestamps null: false
     end
   end
