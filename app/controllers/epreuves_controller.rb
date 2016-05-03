@@ -1,0 +1,2 @@
+class EpreuvesController < ApplicationController
+end
