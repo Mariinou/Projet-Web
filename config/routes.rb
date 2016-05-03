@@ -10,6 +10,10 @@ Rails.application.routes.draw do
   end
 
   devise_for :users
+
+  resources :notes
+
+  resources :matieres
   
   root 'home#index'
   # The priority is based upon order of creation: first created -> highest priority.
