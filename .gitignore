@@ -15,7 +15,9 @@
 /log/*
 !/log/.keep
 /tmp
+
 *~
 
-# Ignore local db change
+#other files
+
 /config/database.yml

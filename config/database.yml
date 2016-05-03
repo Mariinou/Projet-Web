@@ -63,5 +63,10 @@ production:
   database: projet_web_production
   host: localhost
   pool: 5
+<<<<<<< HEAD
   username: ruby
   password: ruby
+=======
+  username: marie
+  password: Marinou2-5
+>>>>>>> 5dbad37f25b4dff0e165364ae0aa2be0ae052a9d
