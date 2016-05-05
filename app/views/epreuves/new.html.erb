@@ -1,0 +1,19 @@
+<h2>Nouvelle épreuve</h2>
+
+<%= form_for @epreuve do |f| %>
+ <%= f.collection_select :user_id, User.where(type:'Enseignant'), :id, :prenom_et_nom, include_blank: 'Sélectionnez un professeur' %>
+ <br />
+ <br />
+  <%= f.label :Date_de_l_épreuve%>
+        <br />
+   <%= f.date_field :date %>
+
+ <%= f.collection_select :user_id, Matiere.all, :id, :titre, include_blank: 'Sélectionnez une épreuve' %>
+
+ <br />
+ <br />
+
+<%= f.text_field :titre, placeholder: "Epreuve"%>
+<%= f.submit "Enregistrer"%>
+<% end %>
+<%= link_to "Retour", :back%>

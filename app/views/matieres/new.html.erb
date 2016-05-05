@@ -4,7 +4,7 @@
  <%= f.collection_select :user_id, User.where(type:'Enseignant'), :id, :prenom_et_nom, include_blank: 'Sélectionnez un professeur' %>
  <br />
  <br />
-  <%= f.label :Date_de_début%>
+  <%= f.label :date_de_debut%>
         <br />
    <%= f.date_field :debut %>
 
@@ -21,3 +21,5 @@
 <%= f.submit "Enregistrer"%>
 <% end %>
 <%= link_to "Retour", :back%>
+
+
