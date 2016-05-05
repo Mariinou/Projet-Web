@@ -5,6 +5,9 @@ Rails.application.routes.draw do
     resources :administrateurs
     resources :enseignants
     resources :etudiants
+    resources :matieres
+    resources :epreuves
+    resources :notes
 
     root to: "users#index"
   end

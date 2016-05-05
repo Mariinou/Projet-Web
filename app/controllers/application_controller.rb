@@ -4,11 +4,12 @@ class ApplicationController < ActionController::Base
   # For APIs, you may want to use :null_session instead.
   protect_from_forgery with: :exception
 
-  helper_method :admin?
-  helper_method :enseignant?
-  helper_method :etudiant?
-
     after_filter :store_location
+
+    rescue_from CanCan::AccessDenied do |exception|
+        flash[:error] = "Accès refusé !"
+        redirect_to root_path
+    end
 
     def store_location
         # store last url - this is needed for post-login redirect to whatever the user last visited.
@@ -54,15 +55,6 @@ class ApplicationController < ActionController::Base
         if current_user.kind_of? Etudiant
             true
         else
-            false
-        end
-    end
-
-    #Méthode qui authorise l'accès sinon redirige
-    def authorize
-        unless admin?
-            flash[:alert] = "Accès non autorisé"
-            redirect_to home_path
             false
         end
     end

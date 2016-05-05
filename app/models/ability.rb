@@ -8,10 +8,13 @@ class Ability
 
   	else if user.kind_of? Etudiant
   		can :read, Note
+  		can :read, Epreuve
   	else 
-  		can :create, Note
-  		can :create, Matiere
-  		can :create, Epreuve
+  		can :manage, Note
+  		can :manage, Matiere
+  		can :manage, Epreuve
+  		can :manage, Etudiant
+
   	end
   	end
   end

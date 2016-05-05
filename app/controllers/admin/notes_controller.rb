@@ -1,5 +1,5 @@
 module Admin
-  class EnseignantsController < Admin::ApplicationController
+  class NotesController < Admin::ApplicationController
     load_and_authorize_resource
     # To customize the behavior of this controller,
     # simply overwrite any of the RESTful actions. For example:

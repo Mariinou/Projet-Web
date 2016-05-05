@@ -1,4 +1,7 @@
 class EpreuvesController < ApplicationController
+    before_action :authenticate_user!
+    load_and_authorize_resource
+    
 	def new
 		@epreuve = Epreuve.new
 	end
@@ -7,7 +10,7 @@ class EpreuvesController < ApplicationController
         @epreuve = Epreuve.new(epreuve_params)
         if @epreuve.save
             flash[:notice] = 'Epreuve ajoutée avec succès'
-            redirect_to new_matiere_path
+            redirect_to new_epreuve_path
         else
             render :action => 'new'
         end
@@ -21,6 +24,6 @@ class EpreuvesController < ApplicationController
     private
 
     def epreuve_params
-        params.require(:epreuve).permit(:titre, :debut, :fin, :user_id)
+        params.require(:epreuve).permit(:titre, :date, :matiere_id)
     end
 end

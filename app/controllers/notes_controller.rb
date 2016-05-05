@@ -1,4 +1,5 @@
 class NotesController < ApplicationController
+    before_action :authenticate_user!
 	load_and_authorize_resource
 
 	def new
@@ -30,6 +31,6 @@ class NotesController < ApplicationController
 	private
 
     def note_params
-        params.require(:note).permit(:user_id, :note, :matiere)
+        params.require(:note).permit(:user_id, :note, :matiere_id, :epreuve_id)
     end
 end
