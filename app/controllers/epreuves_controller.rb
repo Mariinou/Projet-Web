@@ -13,6 +13,13 @@ class EpreuvesController < ApplicationController
         end
     end
 
+    def index
+    	@epreuve_list = Epreuve.all
+    end
+
+
+    private
+
     def epreuve_params
         params.require(:epreuve).permit(:titre, :debut, :fin, :user_id)
     end

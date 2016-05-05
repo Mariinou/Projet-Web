@@ -16,12 +16,16 @@ class NotesController < ApplicationController
     end
 
 	def index
-
+        @note_list = Note.all
 	end
 
 	def edit
 
 	end
+
+    def show
+
+    end
 
 	private
 
