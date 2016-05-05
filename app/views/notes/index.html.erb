@@ -6,4 +6,8 @@
     matière : <%= @note.matiere_id %>
     </br>
     </br>
-  <% end %>
+<% end %>
+
+<% if can? :create, Note %>
+	<p> <%= link_to "New Note", new_note_path %> </p>
+<% end %>
