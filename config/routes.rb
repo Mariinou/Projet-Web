@@ -1,4 +1,4 @@
-Rails.application.routes.draw do
+Rails.application.routes.draw do 
 
   namespace :admin do
     resources :users
@@ -21,6 +21,13 @@ Rails.application.routes.draw do
   resources :epreuves
   
   root 'home#index'
+
+  get 'javascripts/dynamic_epreuves.:format' => 'javascripts#dynamic_epreuves'
+
+  #resources :javascripts do
+    #match ':controller/:action.:format', via: [:get, :post]
+  #end
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

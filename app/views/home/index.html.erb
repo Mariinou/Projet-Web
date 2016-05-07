@@ -2,6 +2,10 @@
   <head>
   </head>
   <body>
+  	<% if current_user.kind_of? Administrateur %>
+	<%= link_to "Administrer",  admin_root_path %>
+	<% end %>
+
     <!-- Affichage des liens de navigation!-->
 	<%= render "layouts/_navigation_links" %>
 	<!--Fin Affichage des liens de navigation!-->

@@ -1,0 +1,40 @@
+var epreuves = new Array();
+<% for epreuve in @epreuves -%>
+  epreuves.push(new Array(<%= epreuve.matiere_id %>, '<%=h epreuve.titre %>', <%= epreuve.id %>));
+<% end -%>
+
+function matiereSelected() {
+  matiere_id = $('#note_matiere_id').val();
+  options = $('#note_epreuve_id option');
+  options.length = 1;
+  
+  var newOptions = new Array();
+  var $el = $("#note_epreuve_id");
+  $el.empty(); // remove old options
+  
+  $.each(epreuves, function(epreuve_key, epreuve_value) {
+    if (epreuve_value[0] == matiere_id) {
+      newOptions.push(new Array(epreuve_value[2],epreuve_value[1]));
+      //options[options.length] = new Option(epreuve_value[1], epreuve_value[2]);
+      options.length++;
+    }
+  })
+  $.each(newOptions, function(key,value) {
+    $el.append($("<option></option>")
+       .attr("value", value[0]).text(value[1]));
+  });
+
+  if (options.length == 1) {
+    $('#epreuve_field').hide();
+  } else {
+    $('#epreuve_field').show();
+  }
+}
+
+$(document).ready(function() {
+  matiereSelected();
+  $('#note_matiere_id').on('change', function() {
+      matiereSelected();
+  });
+
+});

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160505101201) do
+ActiveRecord::Schema.define(version: 20160507095204) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -65,7 +65,7 @@ ActiveRecord::Schema.define(version: 20160505101201) do
 
   create_table "notes", force: :cascade do |t|
     t.float    "note"
-    t.integer  "user_id"
+    t.integer  "user_id",    null: false
     t.integer  "matiere_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false

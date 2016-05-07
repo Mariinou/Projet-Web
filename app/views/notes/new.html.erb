@@ -1,10 +1,16 @@
+<%= javascript 'dynamic_epreuves' %>
 
 <h2>Nouvelle note</h2>
 
 <%= form_for @note do |f| %>
  <%= f.collection_select :user_id, User.where(type:'Etudiant'), :id, :prenom_et_nom, include_blank: 'Sélectionnez un étudiant' %>
+ <label for="note_matiere_id">Matière:</label>
  <%= f.collection_select :matiere_id, Matiere.where(user_id: current_user.id), :id, :titre, include_blank: 'Sélectionnez une matière' %>
- <%= f.collection_select :epreuve_id, Epreuve.all, :id, :titre, include_blank: 'Sélectionnez une épreuve' %>
+ <p id="epreuve_field">
+ <label for="note_epreuve_id">Epreuve:</label>
+ <%= f.collection_select :epreuve_id, Epreuve.all ,:id, :titre, include_blank: 'Sélectionnez une épreuve' %>
+ </p>
+
 <%= f.text_field :note, placeholder: "Note"%>
 <%= f.submit "Enregistrer"%>
 <% end %>
