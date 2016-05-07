@@ -17,7 +17,13 @@ class EpreuvesController < ApplicationController
     end
 
     def index
-    	@epreuve_list = Epreuve.all
+        @notes=Note.where(user_id: current_user.id)
+        @epreuve_list =[]
+        @notes.each do |note|
+           tmp = Epreuve.find(note.epreuve_id)
+           @epreuve_list.push(tmp)
+        end
+            
     end
 
 

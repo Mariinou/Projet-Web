@@ -17,7 +17,7 @@ class NotesController < ApplicationController
     end
 
 	def index
-        @note_list = Note.all
+        @note_list = Note.where(user_id: current_user.id)
 	end
 
 	def edit
