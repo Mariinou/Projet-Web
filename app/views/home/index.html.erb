@@ -2,13 +2,27 @@
   <head>
   </head>
   <body>
+    <!-- Affichage des liens de navigation!-->
+	<%= render "layouts/_navigation_links" %>
+	<!--Fin Affichage des liens de navigation!-->
+
   	<% if current_user.kind_of? Administrateur %>
 	<%= link_to "Administrer",  admin_root_path %>
 	<% end %>
 
-    <!-- Affichage des liens de navigation!-->
-	<%= render "layouts/_navigation_links" %>
-	<!--Fin Affichage des liens de navigation!-->
+	<% if current_user.kind_of? Etudiant %>
+	<%= link_to "Consulter ses notes",  notes_path %>
+	<%= link_to "Consulter ses épreuves",  epreuves_path %>
+	<% end %>
+
+	<% if current_user.kind_of? Enseignant %>
+	<%= link_to "Administrer les étudiants",  new_admin_etudiant_path %>
+	<%= link_to "Ajouter une note",  new_note_path %>
+	<%= link_to "Ajouter une matière",  new_matiere_path %>
+	<%= link_to "Ajouter une épreuve",  new_epreuve_path %>
+
+	<% end %>
+
 	<%= @type %>
   </body>
 </html>
