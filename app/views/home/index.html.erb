@@ -7,7 +7,7 @@
 	<!--Fin Affichage des liens de navigation!-->
 	
   	<% if current_user.kind_of? Administrateur %>
-	<%= link_to "Administrer",  admin_root_path %>
+		<%= link_to "Administrer",  admin_root_path %>
 	<% end %>
 
 	<% if current_user.kind_of? Etudiant %>

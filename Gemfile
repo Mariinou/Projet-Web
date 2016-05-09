@@ -39,6 +39,11 @@ gem 'sdoc', '~> 0.4.0', group: :doc
   gem 'sprockets-rails', '~> 2.3.3'
   gem 'administrate-field-image'
 
+  gem 'i18n'
+  gem 'devise-i18n'
+
+  gem "bulma-rails"
+
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console

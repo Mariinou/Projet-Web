@@ -6,7 +6,7 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
-User.create!(nom: 'paul', prenom: 'choux', email: 'patate@gpol.fr', type: 'Etudiant', password: 'Patate12')
-User.create!(nom: 'titeuf', prenom: 'cool', email: 'prof@lycee.com', type: 'Enseignant', password: 'Prof31')
-User.create!(nom: 'dupont', prenom: 'bois', email: 'admin@force.fr', type: 'Administrateur', password: 'thebest')
+User.create!(nom: 'paul', prenom: 'choux', email: 'patate@gpol.fr', type: 'Etudiant', password: 'Patate12', approved: true)
+User.create!(nom: 'titeuf', prenom: 'cool', email: 'prof@lycee.com', type: 'Enseignant', password: 'Prof31', approved: true)
+User.create!(nom: 'dupont', prenom: 'bois', email: 'admin@force.fr', type: 'Administrateur', password: 'thebest', approved: true)
 Matiere.create!(titre: 'Mathématiques', debut: DateTime.strptime("02/09/2016","%d/%m/%Y"), fin: DateTime.strptime("02/01/2017","%d/%m/%Y"), user_id: User.where(nom: 'titeuf').where(prenom: 'cool').ids)

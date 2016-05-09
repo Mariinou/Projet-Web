@@ -24,6 +24,7 @@ class EtudiantDashboard < Administrate::BaseDashboard
     type: Field::String,
     nom: Field::String,
     prenom: Field::String,
+    approved: Field::Boolean
   }.freeze
 
   # COLLECTION_ATTRIBUTES
@@ -57,6 +58,7 @@ class EtudiantDashboard < Administrate::BaseDashboard
     :type,
     :nom,
     :prenom,
+    :approved
   ].freeze
 
   # FORM_ATTRIBUTES
@@ -76,6 +78,7 @@ class EtudiantDashboard < Administrate::BaseDashboard
     :type,
     :nom,
     :prenom,
+    :approved
   ].freeze
 
   # Overwrite this method to customize how etudiants are displayed

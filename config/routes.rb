@@ -20,6 +20,8 @@ Rails.application.routes.draw do
 
   resources :epreuves
   
+  resources :users
+  
   root 'home#index'
 
   get 'javascripts/dynamic_epreuves.:format' => 'javascripts#dynamic_epreuves'
