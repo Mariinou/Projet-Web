@@ -17,11 +17,22 @@ class EpreuvesController < ApplicationController
     end
 
     def index
-        @notes=Note.where(user_id: current_user.id)
-        @epreuve_list =[]
-        @notes.each do |note|
-           tmp = Epreuve.find(note.epreuve_id)
-           @epreuve_list.push(tmp)
+        if current_user.kind_of? Etudiant
+            @epreuve_list =[]
+            @matieres=current_user.matieres
+            @matieres.each do |matiere|
+                tmp = Epreuve.where(matiere_id: matiere.id)
+                if not(tmp.empty?)
+                    @epreuve_list.push(tmp[0])
+                end
+            end
+        else 
+            @notes=Note.where(user_id: current_user.id)
+            @epreuve_list =[]
+            @notes.each do |note|
+               tmp = Epreuve.find(note.epreuve_id)
+               @epreuve_list.push(tmp)
+            end
         end
             
     end

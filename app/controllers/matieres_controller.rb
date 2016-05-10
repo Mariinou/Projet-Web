@@ -7,8 +7,9 @@ class MatieresController < ApplicationController
 
 	def create
         @matiere = Matiere.new(matiere_params)
+        @matiere.user_id = current_user.id
         if @matiere.save
-            flash[:notice] = 'Matière ajoutée avec succès'
+            flash[:notice] = "Matière #{@matiere.titre} ajoutée avec succès"
             redirect_to new_matiere_path
         else
             render :action => 'new'

@@ -1,7 +1,6 @@
 <h2>Nouvelle matière</h2>
 
 <%= form_for @matiere do |f| %>
- <%= f.collection_select :user_id, User.where(type:'Enseignant'), :id, :prenom_et_nom, include_blank: 'Sélectionnez un professeur' %>
  <br />
  <br />
   <%= f.label :date_de_debut%>

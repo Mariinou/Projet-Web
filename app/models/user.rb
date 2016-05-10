@@ -4,6 +4,9 @@ class User < ActiveRecord::Base
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
 
+  has_many :users_matieres
+  has_many :matieres, through: :users_matieres
+
 	def prenom_et_nom
 	  "#{nom} #{prenom}"
 	end

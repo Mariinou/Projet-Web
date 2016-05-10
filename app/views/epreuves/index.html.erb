@@ -1,9 +1,13 @@
-<% for @epreuve in @epreuve_list %>
-    epreuve : <%= @epreuve.titre %>
-    </br>
-    matiere : <%= @epreuve.matiere_id %>
-    </br>
-    date : <%= @epreuve.date %>
-    </br>
-    </br>
-  <% end %>
+<%if @epreuve_list.empty? %>
+Aucune épreuve
+<%else%>
+	<% for @epreuve in @epreuve_list %>
+	    epreuve : <%= @epreuve.titre %>
+	    </br>
+	    matiere : <%= Matiere.find(@epreuve.matiere_id).titre %>
+	    </br>
+	    date : <%= @epreuve.date %>
+	    </br>
+	    </br>
+	<% end %>
+<%end%>
