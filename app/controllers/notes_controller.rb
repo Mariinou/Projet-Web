@@ -3,11 +3,14 @@ class NotesController < ApplicationController
 	load_and_authorize_resource
 
 	def new
-		@note = Note.new
-	end
+        @kennel = []
+        5.times do
+            @kennel << Note.new
+        end
+    end
 
 	def create
-        @note = Note.new(note_params)
+        params["notes"].each do |note|
         if @note.save
             flash[:notice] = 'Note ajoutée avec succès'
             redirect_to new_note_path
@@ -15,6 +18,8 @@ class NotesController < ApplicationController
             render :action => 'new'
         end
     end
+
+  end
 
 	def index
         @note_list = Note.where(user_id: current_user.id)

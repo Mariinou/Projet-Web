@@ -10,8 +10,7 @@ class EtudiantDashboard < Administrate::BaseDashboard
   ATTRIBUTE_TYPES = {
     id: Field::Number,
     email: Field::String,
-    encrypted_password: Field::String,
-    reset_password_token: Field::String,
+    encrypted_password: Field::String, 
     reset_password_sent_at: Field::DateTime,
     remember_created_at: Field::DateTime,
     sign_in_count: Field::Number,
@@ -36,7 +35,7 @@ class EtudiantDashboard < Administrate::BaseDashboard
     :id,
     :email,
     :encrypted_password,
-    :reset_password_token,
+    :approved
   ].freeze
 
   # SHOW_PAGE_ATTRIBUTES
@@ -45,7 +44,6 @@ class EtudiantDashboard < Administrate::BaseDashboard
     :id,
     :email,
     :encrypted_password,
-    :reset_password_token,
     :reset_password_sent_at,
     :remember_created_at,
     :sign_in_count,
@@ -67,7 +65,6 @@ class EtudiantDashboard < Administrate::BaseDashboard
   FORM_ATTRIBUTES = [
     :email,
     :encrypted_password,
-    :reset_password_token,
     :reset_password_sent_at,
     :remember_created_at,
     :sign_in_count,
