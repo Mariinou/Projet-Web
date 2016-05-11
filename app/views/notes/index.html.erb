@@ -1,9 +1,9 @@
 <% for @note in @note_list %>
     note : <%= @note.note %>
     </br>
-    epreuve : <%= @note.epreuve_id %>
+    epreuve : <%= Epreuve.find(@note.epreuve_id).titre %>
     </br>
-    matière : <%= @note.matiere_id %>
+    matière : <%= Matiere.find(@note.matiere_id).titre %>
     </br>
     </br>
 <% end %>

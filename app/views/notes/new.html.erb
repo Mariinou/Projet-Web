@@ -2,22 +2,19 @@
 
 <h2>Nouvelle note</h2>
 
-<%= form_tag notes_path do %>
-  <% @kennel.each do |note| %>
-    <%= fields_for 'notes[]', note do |p| %>
 
-      <div class="field">
-        <%= p.label :prenom_et_nom %><br>
-        <%= p.text_field :prenom_et_nom %>
-      </div>
-       <label for="note_matiere_id">Matière:</label>
- <%= f.collection_select :matiere_id, Matiere.where(user_id: current_user.id), :id, :titre, include_blank: 'Sélectionnez une matière' %>
- <p id="epreuve_field">
- <label for="note_epreuve_id">Epreuve:</label>
- <%= f.collection_select :epreuve_id, Epreuve.all ,:id, :titre, include_blank: 'Sélectionnez une épreuve' %>
- </p>
-
-<%= f.text_field :note, placeholder: "Note"%>
-<%= f.submit "Enregistrer"%>
+<% @i=0 %>
+<%= form_for @note do |f| %>
+  <%= f.fields_for :notes, [Note.new]*@nb_eleves do |note| %>
+  	<%= f.text_field :user_id, :value => @eleves[@i].id, class: "hidden"  %>
+  	<%= f.text_field :matiere_id, :value => @matiere_id, class: "hidden"  %>
+  	<%= f.text_field :epreuve_id, :value => @epreuve, class: "hidden"  %>
+  	<%= @eleves[@i].nom %>
+  	<%= @eleves[@i].prenom %>
+    <%= f.text_field :note, placeholder: "Note"%>
+    <% @i+=1 %>
   <% end %>
+  <%= f.submit "Enregistrer"%>
 <% end %>
+
+<%= link_to "Retour", :back%>

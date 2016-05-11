@@ -3,23 +3,24 @@ class NotesController < ApplicationController
 	load_and_authorize_resource
 
 	def new
-        @kennel = []
-        5.times do
-            @kennel << Note.new
+        @note = Note.new
+        if not(params[:epreuve_id] == nil)
+            @epreuve = params[:epreuve_id]
+            @matiere_id = Epreuve.find(@epreuve).matiere_id
+            @eleves = Matiere.find(@matiere_id).users
+            @nb_eleves = @eleves.count
         end
     end
 
 	def create
-        params["notes"].each do |note|
+        @note = Note.new(note_params)
         if @note.save
             flash[:notice] = 'Note ajoutée avec succès'
-            redirect_to new_note_path
+            redirect_to new_epreuve_path
         else
             render :action => 'new'
         end
     end
-
-  end
 
 	def index
         @note_list = Note.where(user_id: current_user.id)

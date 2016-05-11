@@ -7,6 +7,9 @@ class User < ActiveRecord::Base
   has_many :users_matieres
   has_many :matieres, through: :users_matieres
 
+  has_many :notes
+  accepts_nested_attributes_for :notes, :reject_if => lambda { |b| b[:note].blank? }
+
 	def prenom_et_nom
 	  "#{nom} #{prenom}"
 	end

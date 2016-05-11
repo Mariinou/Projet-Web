@@ -1,3 +1,7 @@
+<%= link_to "Page d'acceuil", root_path %>
+</br>
+</br>
+
 <%if @epreuve_list.empty? %>
 Aucune épreuve
 <%else%>
@@ -8,6 +12,16 @@ Aucune épreuve
 	    </br>
 	    date : <%= @epreuve.date %>
 	    </br>
-	    </br>
+	    <% if current_user.kind_of? Enseignant %>
+	    	<%= link_to "Ajouter une note pour cette épreuve",  new_note_path({ :epreuve_id => @epreuve.id }) %>
+	    <% end %>
+
+
 	<% end %>
+</br>
+<% if current_user.kind_of? Enseignant %>
+	   <%= link_to "Ajouter une épreuve",  new_epreuve_path %>
+<% end %>
+
 <%end%>
+

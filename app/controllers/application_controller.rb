@@ -7,7 +7,7 @@ class ApplicationController < ActionController::Base
     after_filter :store_location
 
     rescue_from CanCan::AccessDenied do |exception|
-        flash[:error] = "Accès refusé !"
+        flash[:alert] = "Accès refusé !"
         redirect_to root_path
     end
 
