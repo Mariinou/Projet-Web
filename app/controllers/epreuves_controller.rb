@@ -10,7 +10,7 @@ class EpreuvesController < ApplicationController
         @epreuve = Epreuve.new(epreuve_params)
         if @epreuve.save
             flash[:notice] = 'Epreuve #{@epreuve.titre} ajoutée avec succès'
-            redirect_to epreuve_path
+            redirect_to epreuves_path
         else
             render :action => 'new'
         end
@@ -30,8 +30,12 @@ class EpreuvesController < ApplicationController
             @matieres = Matiere.where(user_id: current_user.id)
             @epreuve_list =[]
             @matieres.each do |matiere|
+               @i = 0
                tmp = Epreuve.where(matiere_id: matiere.id)
-               @epreuve_list.push(tmp[0])
+               while not(tmp[@i] == nil) do
+                    @epreuve_list.push(tmp[@i])
+                    @i = @i+1
+               end
             end
         end
             

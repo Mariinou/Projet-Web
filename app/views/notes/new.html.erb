@@ -1,20 +1,27 @@
 <%= javascript 'dynamic_epreuves' %>
 
 <h2>Nouvelle note</h2>
-
+</br>
 
 <% @i=0 %>
-<%= form_for @note do |f| %>
-  <%= f.fields_for :notes, [Note.new]*@nb_eleves do |note| %>
-  	<%= f.text_field :user_id, :value => @eleves[@i].id, class: "hidden"  %>
+<%= form_tag notes_path do %>
+  <% @kennel.each do |note| %>
+    <%= fields_for 'notes[]', note do |f| %>
+
+    <%= f.text_field :user_id, :value => @eleves[@i].id, class: "hidden" %>
   	<%= f.text_field :matiere_id, :value => @matiere_id, class: "hidden"  %>
   	<%= f.text_field :epreuve_id, :value => @epreuve, class: "hidden"  %>
   	<%= @eleves[@i].nom %>
   	<%= @eleves[@i].prenom %>
-    <%= f.text_field :note, placeholder: "Note"%>
+    <%= f.number_field :note, :min => 0, :max => 20 , :step => 0.5, placeholder: "Note"%>
     <% @i+=1 %>
+    </br>
+    </br>
+    <% end %>
   <% end %>
-  <%= f.submit "Enregistrer"%>
+  <div class="actions">
+     <%= submit_tag %>
+  </div>
 <% end %>
 
 <%= link_to "Retour", :back%>
