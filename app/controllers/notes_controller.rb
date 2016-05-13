@@ -1,17 +1,19 @@
 class NotesController < ApplicationController
-    before_action :authenticate_user!
+  before_action :authenticate_user!
 	load_and_authorize_resource
 
 	def new
-        if not(params[:epreuve_id] == nil)
-            @epreuve = params[:epreuve_id]
-            @matiere_id = Epreuve.find(@epreuve).matiere_id
-            @eleves = Matiere.find(@matiere_id).users
-            @nb_eleves = @eleves.count
-            @kennel = []
-            @nb_eleves.times do
-                @kennel << Note.new
-            end
+        if current_user.kind_of? Enseignant
+          if not(params[:epreuve_id] == nil)
+              @epreuve = params[:epreuve_id]
+              @matiere_id = Epreuve.find(@epreuve).matiere_id
+              @eleves = Matiere.find(@matiere_id).users
+              @nb_eleves = @eleves.count
+              @kennel = []
+              @nb_eleves.times do
+                  @kennel << Note.new
+              end
+          end
         end
     end
 
@@ -32,7 +34,11 @@ class NotesController < ApplicationController
     end
 
 	def index
-        @note_list = Note.where(user_id: current_user.id)
+        if current_user.kind_of? Etudiant
+          @note_list = Note.where(user_id: current_user.id)
+        else 
+          @matiere_list = Matiere.where(user_id: current_user.id)
+        end
 	end
 
 	def edit

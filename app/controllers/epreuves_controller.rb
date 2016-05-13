@@ -21,9 +21,11 @@ class EpreuvesController < ApplicationController
             @epreuve_list =[]
             @matieres=current_user.matieres
             @matieres.each do |matiere|
+                @i = 0
                 tmp = Epreuve.where(matiere_id: matiere.id)
-                if not(tmp.empty?)
-                    @epreuve_list.push(tmp[0])
+                while not(tmp[@i] == nil) do
+                    @epreuve_list.push(tmp[@i])
+                    @i = @i+1
                 end
             end
         else 

@@ -6,12 +6,14 @@
 Aucune épreuve
 <%else%>
 	<% for @epreuve in @epreuve_list %>
+	
 	    epreuve : <%= @epreuve.titre %>
 	    </br>
 	    matiere : <%= Matiere.find(@epreuve.matiere_id).titre %>
 	    </br>
 	    date : <%= @epreuve.date %>
 	    </br>
+
 	    <% if current_user.kind_of? Enseignant %>
 	    	<%= link_to "Ajouter une note pour cette épreuve",  new_note_path({ :epreuve_id => @epreuve.id }) %>
 	    </br>
