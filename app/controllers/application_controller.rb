@@ -6,6 +6,10 @@ class ApplicationController < ActionController::Base
 
     after_filter :store_location
 
+    rescue_from ActionController::RoutingError do |exception|
+           render :file => "#{Rails.root}/public/404.html", :layout => false, :status => :not_found
+    end
+
     rescue_from CanCan::AccessDenied do |exception|
         flash[:alert] = "Accès refusé !"
         redirect_to root_path
@@ -58,6 +62,4 @@ class ApplicationController < ActionController::Base
             false
         end
     end
-
-
 end
