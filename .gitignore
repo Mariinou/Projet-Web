@@ -20,4 +20,4 @@
 
 #other files
 
-/database.yml
+/config/database.yml
