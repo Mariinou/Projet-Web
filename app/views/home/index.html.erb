@@ -16,7 +16,6 @@
 	<% end %>
 
 	<% if current_user.kind_of? Enseignant %>
-	<%= link_to "Administrer les étudiants",  new_admin_etudiant_path %>
 	<%= link_to "Ajouter une note",  epreuves_path %>
 	<%= link_to "Ajouter une matière",  new_matiere_path %>
 	<%= link_to "Ajouter une épreuve",  new_epreuve_path %>

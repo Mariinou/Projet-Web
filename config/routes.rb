@@ -19,8 +19,10 @@ Rails.application.routes.draw do
   resources :matieres
 
   resources :epreuves
-  
-  resources :users
+
+  namespace :validation do
+    resources :users
+  end
   
   root 'home#index'
 

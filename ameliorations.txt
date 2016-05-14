@@ -34,6 +34,4 @@ bouton supprimer une épreuve ?
 
 affichage des matières (juste celles du prof ?), épreuves (idem), notes (intégré dans affichage des épreuves ?, bouton modifications des notes et suppression épreuve ?)
 
-ETUDIANT
 
-affichage de toutes les epreuves de l'étudiant
