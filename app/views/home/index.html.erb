@@ -5,15 +5,25 @@
     <!-- Affichage des liens de navigation!-->
 	<%= render "layouts/_navigation_links" %>
 	<!--Fin Affichage des liens de navigation!-->
-	
-  	<% if current_user.kind_of? Administrateur %>
-		<%= link_to "Administrer",  admin_root_path %>
-	<% end %>
+  <div class="columns space_top">
+	<div class="field is-4 column is-centered">
+	  	<% if current_user.kind_of? Administrateur %>
+			<%= link_to "Administrer",  admin_root_path, class: "button is-warning" %>
+		<% end %>
+	</div>
+  </div>
+
 
 	<% if current_user.kind_of? Etudiant %>
-	<%= link_to "Consulter ses notes",  notes_path %>
-	<%= link_to "Consulter ses épreuves",  epreuves_path %>
-	<% end %>
+	<div class="columns">
+		<div class="field is-4 column is-centered">
+			<%= link_to "Consulter mes notes",  notes_path, class: "button is-warning" %>
+		</div>
+		<div class="field is-4 column is-centered">
+			<%= link_to "Consulter mes épreuves",  epreuves_path, class: "button is-warning" %>
+			<% end %>
+		</div>
+	</div>
 
 	<% if current_user.kind_of? Enseignant %>
 	<%= link_to "Ajouter une note",  epreuves_path %>
@@ -22,6 +32,5 @@
 
 	<% end %>
 
-	<%= @type %>
   </body>
 </html>

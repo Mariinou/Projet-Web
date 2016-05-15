@@ -1,26 +1,39 @@
-<h2>Identifiez vous !</h2>
+<div class="space_top">
 
-<%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-  <div class="field">
-    <%= f.label :identifiant %><br />
-    <%= f.email_field :email %>
-  </div>
+  <h1>Bienvenue sur note-ilus ! </h1>
 
-  <div class="field">
-    <%= f.label :mot_de_passe %><br />
-    <%= f.password_field :password, autocomplete: "off" %>
-  </div>
+  <h2>Identifiez vous !</h2>
 
-  <% if devise_mapping.rememberable? -%>
-    <div class="field">
-      <%= f.check_box :remember_me %>
-      <%= f.label :se_souvenir %>
+  <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+
+  <div class="columns">
+    <div class="field is-4 column is-centered control has-icon">
+      <%= f.email_field :email, class: "input", placeholder: "Email" %>
+      <i class="fa fa-envelope"></i>
     </div>
-  <% end -%>
-
-  <div class="actions">
-    <%= f.submit "Se connecter" %>
   </div>
-<% end %>
+  <div class="columns">
+    <div class="field is-4 column is-centered control has-icon">
+      <%= f.password_field :password, autocomplete: "off", class: "input", placeholder: "Mot de passe" %>
+      <i class="fa fa-lock"></i>
+    </div>
+  </div>
 
-<%= render "devise/shared/links" %>
+    <% if devise_mapping.rememberable? -%>
+  <div class="columns">
+      <div class="field is-4 column is-centered">
+        <%= f.check_box :remember_me, class: "checkbox" %>
+        <%= f.label :se_souvenir %>
+      </div>
+  </div>
+    <% end -%>
+  <div class="columns">
+    <div class="actions is-one-half column is-centered ">
+      <%= f.submit "Se connecter", class: "button button is-warning" %>
+    </div>
+  </div>
+  <% end %>
+</div>
+<div class="align_bot">
+  <%= render "devise/shared/links" %>
+</div>

@@ -15,9 +15,6 @@
 
  */
 
-.new_user{
-	background-color: yellow;
-}
 
 @import "bulma";
 
@@ -85,4 +82,51 @@ a{
 a:hover{
 	text-shadow: none;
 	color: rgb(92, 11, 160);
+}
+
+.is-centered{
+	margin-left: auto;
+    margin-right: auto;
+}
+
+.align_bot{
+	position: absolute;
+    bottom: 30px;
+    width: 100%;
+}
+
+.space_top{
+	margin-top: 10%;
+}
+
+.space_top-small{
+	margin-top:5.5%;
+}
+
+.control.has-icon:not(.has-icon-right) > .fa {
+    left: 13px;
+    top: 13px;
+}
+
+.button.is-link, .pagination a.is-link {
+    background: transparent;
+    border-color: rgb(103, 83, 28);
+    color: rgb(212, 187, 87);
+}
+
+.button {
+	text-shadow: none;
+}
+
+.button.is-warning.is-outlined, .pagination a.is-warning.is-outlined {
+    background: white;
+    border-color: #fce473;
+    color: #fce473;
+    text-shadow: none;
+}
+
+.button.is-warning.is-outlined:hover, .pagination a.is-warning.is-outlined:hover, .button.is-warning.is-outlined:focus, .pagination a.is-warning.is-outlined:focus {
+    border-color: #fbda41;
+    background-color: #fbda41;
+    color: white;
 }
