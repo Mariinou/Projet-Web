@@ -1,9 +1,37 @@
-<% for @matiere in @matiere_list %>
-    titre : <%= @matiere.titre %>
+<% if (params[:matiere_id] != nil) && not(current_user.kind_of? Etudiant) %>
+	titre : <%= @matiere.titre %>
     </br>
     période : du <%= @matiere.debut %> au <%= @matiere.fin %>
     </br>
     enseignant : <%= User.find(@matiere.user_id).nom %> <%= User.find(@matiere.user_id).prenom %>
     </br>
     </br>
-  <% end %>
+    <!-- 
+	use form tag : 
+
+	form_tag(path, :method => :custom) do
+	+ checkboxes
+	+ custom strong params
+    !-->
+    <% for @etudiant in @etudiant_list %>
+    	<%= @etudiant.nom %>
+    	<%= @etudiant.prenom %>
+    	</br>
+    <% end %>
+
+<%else%>
+
+	<% for @matiere in @matiere_list %>
+	    titre : <%= @matiere.titre %>
+	    </br>
+	    période : du <%= @matiere.debut %> au <%= @matiere.fin %>
+	    </br>
+	    enseignant : <%= User.find(@matiere.user_id).nom %> <%= User.find(@matiere.user_id).prenom %>
+	    </br>
+	    </br>
+	    <% if not(current_user.kind_of? Etudiant) %>
+	    <%= link_to "Ajouter des étudiants à cette matière",  matieres_path({ :matiere_id => @matiere.id }) %>
+	    <% end %>
+	<% end %>
+
+<% end %>

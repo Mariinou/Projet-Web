@@ -18,6 +18,12 @@ class MatieresController < ApplicationController
 
     def index
     	@matiere_list = Matiere.all
+        if not(current_user.kind_of? Etudiant)
+          if not(params[:matiere_id] == nil)
+              @matiere = Matiere.find(params[:matiere_id])
+              @etudiant_list = User.where(type: Etudiant)
+          end
+        end
     end
 
     private
