@@ -1,0 +1,16 @@
+
+<h2>Valider l'enseignant</h2>
+
+<%= form_for [:validation, @user] do |f| %>
+    <%= f.text_field :nom %>
+    <%= f.text_field :prenom %>
+    <%= f.email_fiel :email %>
+    <br />
+    <br />   
+    <%= f.label :approved%>
+    <br />
+    <%= f.check_box :approved %>
+    <br />
+    <%= f.submit "Enregistrer"%>
+<% end %>
+<%= link_to "Retour", :back%>
