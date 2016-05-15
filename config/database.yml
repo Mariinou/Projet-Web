@@ -12,7 +12,6 @@ test:
   database: projet_web_test
 
 production:
-  url: <%= ENV['DATABASE_URL'] %>
-  adapter: postgresql
-  encoding: unicode
+  <<: *default
   database: projet_web_production
+  url: <%= ENV['DATABASE_URL'] %>
