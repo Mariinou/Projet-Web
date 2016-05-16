@@ -1,31 +1,38 @@
-<%= link_to "Page d'acceuil", root_path %>
-</br>
-</br>
-
+<div class="space_top">
+	<h2> Mes épreuves </h2>
 <%if @epreuve_list.empty? %>
-Aucune épreuve
+	Aucune épreuve
 <%else%>
-	<% for @epreuve in @epreuve_list %>
-	
-	    epreuve : <%= @epreuve.titre %>
-	    </br>
-	    matiere : <%= Matiere.find(@epreuve.matiere_id).titre %>
-	    </br>
-	    date : <%= @epreuve.date %>
-	    </br>
+	<div class="columns space_top-small">
+		<div class="column is-9 is-centered">
+			<table class="overflow-y">
+				<thead>
+					<th>Epreuve</th>
+					<th>Matiere</th>
+					<th>Date</th>
+				</thead>
+				<tbody>
+					<% for @epreuve in @epreuve_list %>	
+					<tr>
+						<td><%= @epreuve.titre %></td>
+						<td><%= Matiere.find(@epreuve.matiere_id).titre %></td>
+						<td><%= @epreuve.date %></td>
 
-	    <% if current_user.kind_of? Enseignant %>
-	    	<%= link_to "Ajouter une note pour cette épreuve",  new_note_path({ :epreuve_id => @epreuve.id }) %>
-	    </br>
-	    </br>
-	    <% end %>
-
-
-	<% end %>
+					    <% if current_user.kind_of? Enseignant %>
+					    	<%= link_to "Ajouter une note pour cette épreuve",  new_note_path({ :epreuve_id => @epreuve.id }) %>
+					    <% end %>
+					</tr>
+					<% end %>
+				</tbody>
+			</table>
+		</div>
+	</div>
 </br>
 <% if current_user.kind_of? Enseignant %>
 	   <%= link_to "Ajouter une épreuve",  new_epreuve_path %>
 <% end %>
-
+<div class="corner_left">
+	<%= link_to "Retour", :back, :class => 'button is-dark' %>
+</div>
 <%end%>
-
+</div>

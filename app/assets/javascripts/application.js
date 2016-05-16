@@ -11,6 +11,8 @@
 // about supported directives.
 //
 //= require jquery
+//= require jquery.stickyheader
+//= require jquery.ba-throttle-debounce.min
 //= require jquery_ujs
 //= require turbolinks
 //= require_tree .

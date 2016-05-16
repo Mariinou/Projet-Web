@@ -1,19 +1,34 @@
-<% if current_user.kind_of? Etudiant %>
-	<% for @note in @note_list %>
-	    note : <%= @note.note %>
-	    </br>
-	    epreuve : <%= Epreuve.find(@note.epreuve_id).titre %>
-	    </br>
-	    matière : <%= Matiere.find(@note.matiere_id).titre %>
-	    </br>
-	    </br>
-	<% end %>
-<% end %>
+<div class="space_top">
+	<h2> Mes notes </h2>
+	<%if @note_list.empty? %>
+		Aucune note
+	<%else%>
+		<% if current_user.kind_of? Etudiant %>
+		<div class="columns space_top-small">
+			<div class="column is-9 is-centered">
+				<table  class="table overflow-y">
+					<thead>
+						<th>Matiere</th>
+						<th>Epreuve</th>
+						<th>Note</th>
+					</thead>
+					<tbody>	
+						<% for @note in @note_list %>
+						<tr>
+						    <td> <%= Matiere.find(@note.matiere_id).titre %> </td>
+						    <td> <%= Epreuve.find(@note.epreuve_id).titre %> </td>
+						    <td> <%= @note.note %> </td>
+						</tr>
+						<% end %>
+					</tbody>
+				</table>
+			</div>
+		</div>
+		<div class="corner_left">
+  			<%= link_to "Retour", :back, :class => 'button is-dark' %>
+		</div>
+		<% end %>
 
-<% if can? :create, Note %>
-	<% for @matiere in @matiere_list %>
-		matiere : <%= @matiere.titre %>
-		</br>
-		
+
 	<% end %>
-<% end %>
+</div>

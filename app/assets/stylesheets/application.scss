@@ -118,15 +118,96 @@ a:hover{
 	text-shadow: none;
 }
 
-.button.is-warning.is-outlined, .pagination a.is-warning.is-outlined {
-    background: white;
-    border-color: #fce473;
-    color: #fce473;
-    text-shadow: none;
+.corner_left {
+	position: absolute;
+	top: 2em;
+	left: 2em;
 }
 
-.button.is-warning.is-outlined:hover, .pagination a.is-warning.is-outlined:hover, .button.is-warning.is-outlined:focus, .pagination a.is-warning.is-outlined:focus {
-    border-color: #fbda41;
-    background-color: #fbda41;
-    color: white;
+.margin-bot_none{
+	margin-bottom:0 !important;
+}
+
+thead{
+	background: #A52020;
+}
+
+.table thead tr:hover{
+	background: #A52020;
+}
+
+.table tbody tr:hover {
+    background: #D0D0D0;
+}
+
+th:hover{
+	color: #EBBD06 !important;
+}
+
+table {
+    border-collapse: collapse;
+    margin-bottom: 3em;
+    width: 100%;
+    background: #fff;
+}
+
+th {
+	color: #EBBD06 !important;
+}
+
+td, th {
+    padding: 0.75em 1.5em;
+    text-align: left;
+}
+tbody tr:nth-child(2n-1) {
+    transition: all .125s ease-in-out;
+}
+tbody tr:hover {
+    background-color: rgba(129,208,177,.3);
+}
+
+/* For appearance */
+.sticky-wrap {
+	overflow-x: auto;
+	overflow-y: hidden;
+	position: relative;
+	width: 100%;
+}
+.sticky-wrap .sticky-thead,
+.sticky-wrap .sticky-col,
+.sticky-wrap .sticky-intersect {
+	opacity: 0;
+	position: absolute;
+	top: 0;
+	left: 0;
+	transition: all .125s ease-in-out;
+	z-index: 50;
+	width: auto; /* Prevent table from stretching to full size */
+}
+	.sticky-wrap .sticky-thead {
+		box-shadow: 0 0.25em 0.1em -0.1em rgba(0,0,0,.125);
+		z-index: 100;
+		width: 100%; /* Force stretch */
+	}
+	.sticky-wrap .sticky-intersect {
+		opacity: 1;
+		z-index: 150;
+
+	}
+.sticky-wrap td,
+.sticky-wrap th {
+	box-sizing: border-box;
+}
+
+.sticky-wrap th {
+	color: #EBBD06;
+}
+
+/* Not needed for sticky header/column functionality */
+td.user-name {
+	text-transform: capitalize;
+}
+.sticky-wrap.overflow-y {
+	overflow-y: auto;
+	max-height: 38vh;
 }
