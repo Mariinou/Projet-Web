@@ -4,8 +4,6 @@
   <title>ProjetWeb</title>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
-  <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script> 
-  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
   <%= yield(:head) %>
 </head>
@@ -34,6 +32,8 @@
 	</div>
 
 </div> 
+  <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script> 
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
 </body>
 </html>
 
