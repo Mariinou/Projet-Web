@@ -21,15 +21,23 @@
 		</div>
 		<div class="field is-4 column is-centered">
 			<%= link_to "Consulter mes épreuves",  epreuves_path, class: "button is-warning" %>
-			<% end %>
 		</div>
 	</div>
+	<% end %>
 
 	<% if current_user.kind_of? Enseignant %>
-	<%= link_to "Ajouter une note",  epreuves_path %>
-	<%= link_to "Ajouter une matière",  new_matiere_path %>
-	<%= link_to "Ajouter une épreuve",  new_epreuve_path %>
-
+	<div class="columns">
+		<div class="field is-4 column is-centered">
+			<%= link_to "Ajouter une note",  epreuves_path, class: "button is-warning" %>
+		</div>
+		<div class="field is-4 column is-centered">
+		<%= link_to "Ajouter une matière",  new_matiere_path, class: "button is-warning" %>
+		<%= link_to "Ajouter des élèves à une matière",  matieres_path, class: "button is-warning space_top" %>
+		</div>
+		<div class="field is-4 column is-centered">
+		<%= link_to "Ajouter une épreuve",  new_epreuve_path, class: "button is-warning" %>
+		</div>
+	</div>
 	<% end %>
 
   </body>

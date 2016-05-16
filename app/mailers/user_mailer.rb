@@ -1,5 +1,5 @@
 class UserMailer < ApplicationMailer
-  default from: 'notifications@example.com'
+  default from: 'notifications@note-ilus.fr'
  
   def invitation_email(user)
     @user = user

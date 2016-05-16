@@ -1,17 +1,28 @@
-<h2>Nouvelle épreuve</h2>
+<div class="space_top">
+	<h2>Nouvelle épreuve</h2>
 
 <%= form_for @epreuve do |f| %>
- <%= f.collection_select :matiere_id, Matiere.where(user_id: current_user.id) , :id, :titre, include_blank: 'Sélectionnez une matière' %>
- <br />
- <br />
-  <%= f.label :Date_de_l_épreuve%>
-        <br />
-   <%= f.date_field :date %>
-   
- <br />
- <br />
+	<div class="field is-4 column is-centered">
+		<span class="select">
+			<%= f.collection_select :matiere_id, Matiere.where(user_id: current_user.id) , :id, :titre, include_blank: 'Sélectionnez une matière', class: "select" %>
+		</span>
+	</div>
 
-<%= f.text_field :titre, placeholder: "Epreuve"%>
-<%= f.submit "Enregistrer"%>
+	<div class="field is-2 column is-centered">
+		<%= f.label :Date_epreuve, "Date de l'épreuve" %>
+		<%= f.date_field :date, class: "input"  %>
+	</div>
+
+	<div class="field is-3 column is-centered">
+		<%= f.text_field :titre, placeholder: "Epreuve", class: "input" %>
+	</div>
+
+	<div class="actions columns is-centered space_top-small">
+		<%= f.submit "Enregistrer", class: "button is-warning" %>
+	</div>
+
 <% end %>
-<%= link_to "Retour", :back%>
+	<div class="corner_left">
+	  <%= link_to "Retour", :back, :class => 'button is-dark' %>
+	</div>
+</div>

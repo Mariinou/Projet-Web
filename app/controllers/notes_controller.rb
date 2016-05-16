@@ -9,9 +9,9 @@ class NotesController < ApplicationController
               @matiere_id = Epreuve.find(@epreuve).matiere_id
               @eleves = Matiere.find(@matiere_id).users
               @nb_eleves = @eleves.count
-              @kennel = []
+              @notestab = []
               @nb_eleves.times do
-                  @kennel << Note.new
+                  @notestab << Note.new
               end
           end
         end

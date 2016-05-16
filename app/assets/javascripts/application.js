@@ -13,6 +13,7 @@
 //= require jquery
 //= require jquery.stickyheader
 //= require jquery.ba-throttle-debounce.min
+//= require jquery.tinyscrollbar
 //= require jquery_ujs
 //= require turbolinks
 //= require_tree .
@@ -152,4 +153,8 @@ $(document).ready(function() {
 	  requestAnimationFrame(update);
 	};
 	requestAnimationFrame(update);;
+});
+
+$(document).ready(function() {
+	$(".scrollable").tinyscrollbar();
 });

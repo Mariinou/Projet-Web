@@ -26,6 +26,8 @@ Rails.application.routes.draw do
   
   root 'home#index'
 
+  post 'matieres/newmatels' => 'matieres#newmatels', as: :newmatels
+
   get 'javascripts/dynamic_epreuves.:format' => 'javascripts#dynamic_epreuves'
 
   #resources :javascripts do

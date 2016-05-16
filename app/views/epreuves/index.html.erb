@@ -10,6 +10,9 @@
 					<th>Epreuve</th>
 					<th>Matiere</th>
 					<th>Date</th>
+					<% if current_user.kind_of? Enseignant %>
+				    <th>Ajouter une note</th>
+				    <% end %>
 				</thead>
 				<tbody>
 					<% for @epreuve in @epreuve_list %>	
@@ -19,7 +22,9 @@
 						<td><%= @epreuve.date %></td>
 
 					    <% if current_user.kind_of? Enseignant %>
-					    	<%= link_to "Ajouter une note pour cette épreuve",  new_note_path({ :epreuve_id => @epreuve.id }) %>
+					    <td>
+					    	<%= link_to raw("<span class=\"icon\"><i class=\"fa fa-plus\" aria-hidden=\"true\"></i></span><span>Ajouter une note</span>"),  new_note_path({ :epreuve_id => @epreuve.id }), class: "button" %>
+					    </td>
 					    <% end %>
 					</tr>
 					<% end %>
@@ -29,10 +34,10 @@
 	</div>
 </br>
 <% if current_user.kind_of? Enseignant %>
-	   <%= link_to "Ajouter une épreuve",  new_epreuve_path %>
+	   <%= link_to "Ajouter une épreuve",  new_epreuve_path, class: "button is-success corner_right" %>
 <% end %>
 <div class="corner_left">
-	<%= link_to "Retour", :back, :class => 'button is-dark' %>
+	<%= link_to "Accueil", root_path, :class => 'button is-dark' %>
 </div>
 <%end%>
 </div>

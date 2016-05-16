@@ -1,27 +1,36 @@
 <%= javascript 'dynamic_epreuves' %>
-
+<div class="space_top">
 <h2>Nouvelle note</h2>
-</br>
+
 
 <% @i=0 %>
 <%= form_tag notes_path do %>
-  <% @kennel.each do |note| %>
+<div class="scrollable" id="scrollable">
+  <% @notestab.each do |note| %>
     <%= fields_for 'notes[]', note do |f| %>
 
     <%= f.text_field :user_id, :value => @eleves[@i].id, class: "hidden" %>
   	<%= f.text_field :matiere_id, :value => @matiere_id, class: "hidden"  %>
   	<%= f.text_field :epreuve_id, :value => @epreuve, class: "hidden"  %>
-  	<%= @eleves[@i].nom %>
-  	<%= @eleves[@i].prenom %>
-    <%= f.number_field :note, :min => 0, :max => 20 , :step => 0.5, placeholder: "Note"%>
-    <% @i+=1 %>
-    </br>
-    </br>
+    <div class="columns is-centered">
+    <div class="field column better_lineheight isnot-flex">
+    	<%= @eleves[@i].nom %>
+    	<%= @eleves[@i].prenom %>
+    </div>
+    <div class="field is-2 column">
+    <%= f.number_field :note, :min => 0, :max => 20 , :step => 0.5, placeholder: "Note", class: "input"%>
+    </div>
+    </div>
+    <% @i+=1 %> 
     <% end %>
   <% end %>
-  <div class="actions">
-     <%= submit_tag %>
+</div>
+  <div class="actions columns is-centered space_top-small">
+     <%= submit_tag "Enregistrer", class: "button is-warning" %>
   </div>
 <% end %>
 
-<%= link_to "Retour", :back%>
+  <div class="corner_left">
+    <%= link_to "Retour", :back, :class => 'button is-dark' %>
+  </div>
+</div>

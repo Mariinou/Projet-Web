@@ -1,24 +1,26 @@
+<div class="space_top">
 <h2>Nouvelle matière</h2>
 
 <%= form_for @matiere do |f| %>
- <br />
- <br />
-  <%= f.label :date_de_debut%>
-        <br />
-   <%= f.date_field :debut %>
+	<div class="field is-2 column is-centered">
+  		<%= f.label :date_de_debut%>
+   		<%= f.date_field :debut, class: "input" %>
+   	</div>
+	<div class="field is-2 column is-centered">
+  		<%= f.label :Date_de_fin%>       
+   		<%= f.date_field :fin, class: "input"%>
+   	</div>
+	<div class="field is-2 column is-centered">
+		<%= f.text_field :titre, placeholder: "Matière", class: "input"%>
+	</div>
 
- <br />
- <br />
-  <%= f.label :Date_de_fin%>
-        <br />
-   <%= f.date_field :fin %>
-
- <br />
- <br />
-
-<%= f.text_field :titre, placeholder: "Matière"%>
-<%= f.submit "Enregistrer"%>
+<div class="actions columns is-centered space_top-small">
+		<%= f.submit "Enregistrer", class: "button is-warning" %>
+</div>
 <% end %>
-<%= link_to "Retour", :back%>
+<div class="corner_left">
+    <%= link_to "Accueil", root_path, :class => 'button is-dark' %>
+  </div>
+</div>
 
 

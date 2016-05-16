@@ -16,12 +16,27 @@ class MatieresController < ApplicationController
         end
     end
 
+    def newmatels
+      params["matels"].each do |matel|
+        if matel["user_id"] != "" 
+          UsersMatiere.create(matel.permit(:user_id, :matiere_id))
+        end
+      end
+      flash[:notice] = 'Elèves inscrits avec succès'
+      redirect_to matieres_path
+    end
+
     def index
     	@matiere_list = Matiere.all
         if not(current_user.kind_of? Etudiant)
           if not(params[:matiere_id] == nil)
               @matiere = Matiere.find(params[:matiere_id])
               @etudiant_list = User.where(type: Etudiant)
+              @nb_eleves = @etudiant_list.count
+              @mateltab = []
+              @nb_eleves.times do
+                  @mateltab << UsersMatiere.new
+              end
           end
         end
     end
