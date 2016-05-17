@@ -3,7 +3,7 @@ class UserMailer < ApplicationMailer
  
   def invitation_email(user)
     @user = user
-    @url  = home_url
+    @url  = root_url
     mail(to: @user.email, subject: 'Vos notes en direct')
   end
 end
