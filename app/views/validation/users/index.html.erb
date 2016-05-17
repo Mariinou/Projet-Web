@@ -1,8 +1,8 @@
 <% if current_user.kind_of? Administrateur %>
-	<h1>Users</h1>
-	<%= link_to "All Users", :action => "index" %>
+	<h1>Utilisateurs</h1>
+	<%= link_to "Tous les utilisateurs", :action => "index" %>
 	|
-	<%= link_to "Users awaiting approval", :action => "index", :approved => "false" %>
+	<%= link_to "Utilisateurs en attente de validation", :action => "index", :approved => "false" %>
 	<table>
 	  <% for @user in @users %>
 	    <tr>

@@ -1,5 +1,5 @@
 
-<h2>Inscrire l'élève</h2>
+<h2>Inscrire un élève</h2>
 
 <%= form_for [:validation, @user] do |f| %>
     <%= f.text_field :nom, placeholder: "Nom" %>
@@ -7,17 +7,13 @@
     <%= f.email_field :email, placeholder: "Email" %>
     <br />
     <br />   
-    <%= f.label :approved%>
+    <%= f.label :approved, "Validé ?"%>
     <br />
     <%= f.check_box :approved %>
     <br />
     <div class="field">
-        <%= f.radio_button :type, "Etudiant" %>
-        <%= f.label :type, "Etudiant" %>
-        <br />
-        <%= f.radio_button :type, "Enseignant" %>
-        <%= f.label :type, "Enseignant" %>
-        <br />
+        <%= f.radio_button :type, "Etudiant", :checked => true, class: "hidden" %>
+        <%= f.label :type, "Etudiant", class: "hidden" %>
     </div>
     <%= f.submit "Enregistrer"%>
 <% end %>
