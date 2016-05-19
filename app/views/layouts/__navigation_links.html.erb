@@ -1,23 +1,24 @@
 
 	<% if user_signed_in? %>
 
-	<div class="columns space_top-small">
-		<div class="field is-4 column is-centered">
+		<div class="corner_left">
 		  <%= link_to raw("<span>Editer mon profil</span><span class=\"icon\"><i class=\"fa fa-pencil\" aria-hidden=\"true\"></i></span>"), edit_user_registration_path, :class => 'button is-dark' %>
 		</div>
 
-		<div class="field is-4 column is-centered">
+		<div class="corner_right">
 		  <%= link_to raw("<span>Se Déconnecter</span><span class=\"icon\"><i class=\"fa fa-sign-out\" aria-hidden=\"true\"></i></span>"), destroy_user_session_path, method: :delete, :class => 'button is-danger'%>
 		</div>
-	</div>
+	
 
-	<div class="columns">
-		<div class="field is-6 column is-centered">
+	<div class="columns space_top-big">
+		<div class="field is-4 column is-centered">
+			<div class="texte">
 		  Bonjour, <%= current_user.prenom %> <%= current_user.nom %>
+		  	</div>
 		</div>
 	</div>
 
 	<% else %>
-	  <%= link_to "S'inscrire", new_user_registration_path, :class => 'navbar-link'  %> |
+	  <%= link_to "S'inscrire", new_user_registration_path, :class => 'navbar-link'  %> 
 	  <%= link_to "Se Connecter", new_user_session_path, :class => 'navbar-link'  %>
 	<% end %>

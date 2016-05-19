@@ -7,13 +7,13 @@
   <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
 
   <div class="columns">
-    <div class="field is-4 column is-centered control has-icon">
+    <div class="field is-4 column is-centered control has-icon is-half-mobile is-one-third-tablet is-one-quarter-desktop">
       <%= f.email_field :email, class: "input", placeholder: "Email" %>
       <i class="fa fa-envelope"></i>
     </div>
   </div>
   <div class="columns">
-    <div class="field is-4 column is-centered control has-icon">
+    <div class="field is-4 column is-centered control has-icon is-half-mobile is-one-third-tablet is-one-quarter-desktop">
       <%= f.password_field :password, autocomplete: "off", class: "input", placeholder: "Mot de passe" %>
       <i class="fa fa-lock"></i>
     </div>
@@ -29,7 +29,7 @@
     <% end -%>
   <div class="columns">
     <div class="actions is-one-half column is-centered ">
-      <%= f.submit "Se connecter", class: "button button is-warning" %>
+      <%= f.submit "Se connecter", class: "button button is-warning is-medium" %>
     </div>
   </div>
   <% end %>
