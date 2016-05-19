@@ -158,3 +158,8 @@ $(document).on('click', '.notification > button.delete', function() {
     $(this).parent().addClass('is-hidden');
     return false;
 });
+
+$("#particles-js").height($(document).height());
+$(window).resize(function() {
+	$("#particles-js").height($(document).height());
+});
