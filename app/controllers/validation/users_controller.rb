@@ -1,11 +1,16 @@
 class Validation::UsersController < ApplicationController
-
+    before_action :authenticate_user!
+    before_filter :verify_user
+   
 	def index
         if params[:approved] == "false"
           @users = User.where(approved: false)
+          @enseignants = User.where(type: Enseignant).where(approved: false)
         else
           @users = User.all
+          @enseignants = User.where(type: Enseignant)
         end
+        @etudiants = User.where(type: Etudiant)
     end
 
     def edit
@@ -43,5 +48,12 @@ class Validation::UsersController < ApplicationController
     def user_params
         params.require(:user).permit(:nom, :prenom, :email, :type, :password, :approved)
     end
+
+    def verify_user
+        if current_user.kind_of? Etudiant
+            redirect_to root_url
+            flash[:alert] = "Accès refusé !"
+        end
+    end 
 
 end

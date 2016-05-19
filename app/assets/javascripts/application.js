@@ -18,11 +18,6 @@
 //= require turbolinks
 //= require_tree .
 
-$(document).on('click', '.notification > button.delete', function() {
-    $(this).parent().addClass('is-hidden');
-    return false;
-});
-
 
 $(document).ready(function() {
 
@@ -157,4 +152,9 @@ $(document).ready(function() {
 
 $(document).ready(function() {
 	$(".scrollable").tinyscrollbar();
+});
+
+$(document).on('click', '.notification > button.delete', function() {
+    $(this).parent().addClass('is-hidden');
+    return false;
 });

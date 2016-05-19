@@ -43,6 +43,7 @@ gem 'sdoc', '~> 0.4.0', group: :doc
   gem 'devise-i18n'
 
   gem "bulma-rails"
+  gem 'non-stupid-digest-assets'
 
   gem "rails_12factor"
 

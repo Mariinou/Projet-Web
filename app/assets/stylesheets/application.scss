@@ -18,6 +18,13 @@
 
 @import "bulma";
 
+@font-face {
+  font-family: 'Titre';
+  src: url('titre.otf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
 .hidden{
 	display: none;
 }
@@ -49,9 +56,10 @@ canvas{
     box-shadow: 0 5px 50px rgba(0, 0, 0, 0.4);
     width: 80%;
     position: fixed;
-    top: 10%;
-    left: 10%;
+    left: 50%;
+	transform: translateX(-50%);
     height: 75%;
+    top:120px;
 }
 
 .container:before {
@@ -245,23 +253,72 @@ td.user-name {
     border: 1px solid rgba(0, 0, 0, 0.23);
 }
 
-::-webkit-scrollbar { 
-    display: none; 
-}
+// ::-webkit-scrollbar { 
+//     display: none; 
+// }
 
-#scrollable::-webkit-scrollbar {
+::-webkit-scrollbar {
 	display: initial;
     width: 12px;
 }
-#scrollable::-webkit-scrollbar-track {
+::-webkit-scrollbar-track {
     background-color: #eaeaea;
     border-left: 1px solid #ccc;
     border-radius: 4px;
 }
-#scrollable::-webkit-scrollbar-thumb {
+::-webkit-scrollbar-thumb {
     background-color: #ccc;
     border-radius: 4px;
 }
-#scrollable::-webkit-scrollbar-thumb:hover {
+::-webkit-scrollbar-thumb:hover {
     background-color: #aaa;
+}
+
+body {
+	font-family: rosario, sans-serif;
+}
+
+h2, h3, h4, h5, h6 {
+	font-family: sansita-one, sans-serif;
+}
+
+.titre{
+	position: absolute;
+	width: 100%;
+    font-family: Titre, sans-serif;
+	font-size: 100px;
+    top: -10px;
+    text-align: center;
+    color: white;
+    text-shadow: 1px 3px rgba(0, 0, 0, 0.26);
+    display: inline;
+}
+
+.titresnd{
+	display: inline;
+	color: rgba(208, 0, 0, 0.75);
+}
+
+.tiret{
+	font-family: Arial, sans-serif;
+	display: inline;
+	font-size: 50px;
+    position: relative;
+    top: -15px;
+    color: rgba(66, 66, 66, 0.76);;
+}
+
+.notification{
+	display: table;
+    top: 20px;
+    left: 20px;
+    z-index: 18;
+}
+
+input[type="checkbox"]{
+    vertical-align: middle;
+}
+
+.interligne{
+	padding-bottom: 0;
 }
