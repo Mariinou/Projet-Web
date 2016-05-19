@@ -1,20 +1,33 @@
-
+<div class="space_top">
 <h2>Inscrire un élève</h2>
 
-<%= form_for [:validation, @user] do |f| %>
-    <%= f.text_field :nom, placeholder: "Nom" %>
-    <%= f.text_field :prenom, placeholder: "Prénom" %>
-    <%= f.email_field :email, placeholder: "Email" %>
-    <br />
-    <br />   
-    <%= f.label :approved, "Validé ?"%>
-    <br />
-    <%= f.check_box :approved %>
-    <br />
-    <div class="field">
-        <%= f.radio_button :type, "Etudiant", :checked => true, class: "hidden" %>
-        <%= f.label :type, "Etudiant", class: "hidden" %>
+    <%= form_for [:validation, @user] do |f| %>
+        <div class="field is-3 column is-centered">
+            <%= f.text_field :nom, placeholder: "Nom", class: "input" %>
+        </div>
+        <div class="field is-3 column is-centered">
+            <%= f.text_field :prenom, placeholder: "Prénom", class: "input" %>
+        </div>
+        <div class="field is-3 column is-centered">
+            <%= f.email_field :email, placeholder: "Email", class: "input" %>
+        </div>
+        <div class="field is-4 column is-centered">
+            <%= f.label :approved, "Validé ?"%>
+            <%= f.check_box :approved, class:"checkbox" %>
+        </div>
+       
+        <div class="field">
+            <%= f.radio_button :type, "Etudiant", :checked => true, class: "hidden" %>
+            <%= f.label :type, "Etudiant", class: "hidden" %>
+        </div>
+
+        <div class="actions columns is-centered space_top-small">
+            <%= f.submit "Enregistrer", class: "button is-warning" %>
+        </div>
+    <% end %>
+
+    <div class="corner_left">
+      <%= link_to "Retour", :back, :class => 'button is-dark' %>
     </div>
-    <%= f.submit "Enregistrer"%>
-<% end %>
-<%= link_to "Retour", :back%>
+
+</div>

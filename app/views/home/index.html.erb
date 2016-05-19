@@ -2,43 +2,59 @@
   <head>
   </head>
   <body>
-    <!-- Affichage des liens de navigation!-->
 	<%= render "layouts/_navigation_links" %>
+    <!-- Affichage des liens de navigation!-->
 	<!--Fin Affichage des liens de navigation!-->
-  <div class="columns space_top">
-	<div class="field is-4 column is-centered">
+
 	  	<% if current_user.kind_of? Administrateur %>
-			<%= link_to "Administrer",  admin_root_path, class: "button is-warning" %>
+	  		<div class="columns space_top">
+				<div class="field is-4 column is-centered is-half-mobile is-one-third-tablet is-one-quarter-desktop">
+					<%= link_to "Administrer",  admin_root_path, class: "button is-warning is-medium" %>
+				</div>
+				<div class="field is-4 column is-centered is-half-mobile is-one-third-tablet is-one-quarter-desktop">
+					<%= link_to "Valider un enseignant",  validation_users_path, class: "button is-warning is-medium" %>
+				</div>
+			</div>
+
 		<% end %>
-	</div>
-  </div>
+ 
+		<% if current_user.kind_of? Etudiant %>
+		<div class="columns space_top ">
+				<div class="field is-4 column is-centered is-half-mobile is-one-third-tablet is-one-quarter-desktop">
+					<%= link_to "Consulter mes notes",  notes_path, class: "button is-warning is-medium" %>
+				</div>
+				<div class="field is-4 column is-centered is-half-mobile is-one-third-tablet is-one-quarter-desktop">
+					<%= link_to "Consulter mes épreuves",  epreuves_path, class: "button is-warning is-medium" %>
+				</div>
+		</div>
+		<% end %>
+	
 
+  	
+		<% if current_user.kind_of? Enseignant %>
+			<div class="columns space_top-small2">
+				<div class="field column is-4 is-centered is-half-mobile is-one-third-tablet is-one-quarter-desktop">
+					<%= link_to "Inscrire un étudiant",  new_validation_user_path, class: "button is-warning" %>
+				</div>
+			</div>			
+			<div class="columns space_top-small2">
+				<div class="field is-4 column is-centered is-half-mobile is-one-third-tablet is-one-quarter-desktop">
+				<%= link_to "Ajouter une matière",  new_matiere_path, class: "button is-warning" %>
+				</div>
+				<div class="field column is-4 is-centered is-8-mobile is-one-third-tablet is-one-quarter-desktop">
+					<%= link_to "Ajouter des étudiants à une matière",  matieres_path, class: "button is-warning " %>
+				</div>
+				<div class="field is-4 column is-centered is-half-mobile is-one-third-tablet is-one-quarter-desktop">
+				<%= link_to "Ajouter une épreuve",  new_epreuve_path, class: "button is-warning" %>
+				</div>
+			</div>
+			<div class="columns space_top-small2">
+				<div class="field is-4 column is-centered is-half-mobile is-one-third-tablet is-one-quarter-desktop">
+					<%= link_to "Ajouter une note",  epreuves_path, class: "button is-warning" %>
+				</div>
+			</div>
+		<% end %>
 
-	<% if current_user.kind_of? Etudiant %>
-	<div class="columns">
-		<div class="field is-4 column is-centered">
-			<%= link_to "Consulter mes notes",  notes_path, class: "button is-warning" %>
-		</div>
-		<div class="field is-4 column is-centered">
-			<%= link_to "Consulter mes épreuves",  epreuves_path, class: "button is-warning" %>
-		</div>
-	</div>
-	<% end %>
-
-	<% if current_user.kind_of? Enseignant %>
-	<div class="columns">
-		<div class="field is-4 column is-centered">
-			<%= link_to "Ajouter une note",  epreuves_path, class: "button is-warning" %>
-		</div>
-		<div class="field is-4 column is-centered">
-		<%= link_to "Ajouter une matière",  new_matiere_path, class: "button is-warning" %>
-		<%= link_to "Ajouter des élèves à une matière",  matieres_path, class: "button is-warning space_top" %>
-		</div>
-		<div class="field is-4 column is-centered">
-		<%= link_to "Ajouter une épreuve",  new_epreuve_path, class: "button is-warning" %>
-		</div>
-	</div>
-	<% end %>
 
   </body>
 </html>

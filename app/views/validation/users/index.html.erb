@@ -1,22 +1,64 @@
-<% if current_user.kind_of? Administrateur %>
-	<h1>Utilisateurs</h1>
-	<%= link_to "Tous les utilisateurs", :action => "index" %>
-	|
-	<%= link_to "Utilisateurs en attente de validation", :action => "index", :approved => "false" %>
-	<table>
-	  <% for @user in @users %>
-	    <tr>
-	      <td>
-	        <%= @user.email %>
-	      </td>
-	      <td>
-	        <%= @user.approved %>
-	      </td>
-	      <td>
-	        <%= link_to "Edit", edit_validation_user_path(@user) %>
-	      </td>
-	    </tr>
-	  <% end %>
-	</table>
+<div class="space_top-small">
+	<% if current_user.kind_of? Administrateur %>
+		<h2>Validation des enseignants</h2>
+		<div class="column is-9 is-centered interligne">
+		<%= link_to "Tous les enseignants", :action => "index" %>
+		</div>
+		<div class="column is-9 is-centered interligne">
+			<%= link_to "Enseignants en attente de validation", :action => "index", :approved => "false" %>
+		</div>
+			<div class="column is-9 is-centered">
+				<table  class="table overflow-y">
+					<thead>
+						<th>Nom</th>
+						<th>Prénom</th>
+						<th>Email</th>
+						<th>Validation</th>
+						<th>Valider</th>
+						<th>Type</th>
+					</thead>
+					<tbody>
+						<% for @user in @enseignants %>
+					    <tr>
+					      <td><%= @user.nom %></td>
+					      <td><%= @user.prenom %></td>
+					      <td><%= @user.email %></td>
+					      <td><%= @user.type %></td>
+					      <td><%= @user.approved %></td>
+					      <td>
+					    	<%= link_to raw("<span class=\"icon\"><i class=\"fa fa-check\" aria-hidden=\"true\"></i></span><span>Valider cet utilisateur</span>"),  edit_validation_user_path(@user), class: "button" %>
+					      </td>
+					    </tr>
+						<% end %>
+					</tbody>
+				</table>
+			</div>
+</div>
+	
+	<% else %>
+<div class="space_top-small">
+		<h2>Liste des élèves</h2>
+		<div class="column is-9 is-centered">
+			<table  class="table overflow-y">
+				<thead>
+					<th>Nom</th>
+					<th>Prénom</th>
+					<th>Email</th>
+				</thead>
+	 			<tbody>
+					<% for @user in @etudiants %>
+				    <tr>
+				      <td><%= @user.nom %></td>
+				      <td><%= @user.prenom %></td>
+				      <td><%= @user.email %></td>
+				    </tr>
+		 			<% end %>
+		 		</tbody>
+		 	</table>
+</div>
+	<% end %>
 
-<% end %>
+	<div class="corner_left">
+		<%= link_to "Accueil", root_path, :class => 'button is-dark' %>
+	</div>
+

@@ -2,7 +2,7 @@
 	<h2>Nouvelle épreuve</h2>
 
 <%= form_for @epreuve do |f| %>
-	<div class="field is-4 column is-centered">
+	<div class="field is-4 column is-centered space_top-small2">
 		<span class="select">
 			<%= f.collection_select :matiere_id, Matiere.where(user_id: current_user.id) , :id, :titre, include_blank: 'Sélectionnez une matière', class: "select" %>
 		</span>
@@ -17,8 +17,8 @@
 		<%= f.text_field :titre, placeholder: "Epreuve", class: "input" %>
 	</div>
 
-	<div class="actions columns is-centered space_top-small">
-		<%= f.submit "Enregistrer", class: "button is-warning" %>
+	<div class="actions columns is-centered space_top-small2">
+		<%= f.submit "Enregistrer", class: "button is-warning is-medium" %>
 	</div>
 
 <% end %>

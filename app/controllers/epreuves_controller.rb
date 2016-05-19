@@ -9,7 +9,7 @@ class EpreuvesController < ApplicationController
 	def create
         @epreuve = Epreuve.new(epreuve_params)
         if @epreuve.save
-            flash[:notice] = 'Epreuve #{@epreuve.titre} ajoutée avec succès'
+            flash[:notice] = "Epreuve #{@epreuve.titre} ajoutée avec succès"
             redirect_to epreuves_path
         else
             render :action => 'new'

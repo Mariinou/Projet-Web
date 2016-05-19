@@ -30,6 +30,42 @@
 		<div class="corner_left">
   			<%= link_to "Accueil", root_path, :class => 'button is-dark' %>
 		</div>
+		<% else %>
+			<div class="scrollable" id="scrollable">
+				
+				<% for @epreuve in @note_list %>
+					<%if not(@epreuve.empty?) %>
+						<div class="entete space_top-small">
+							Matière : <%= Matiere.find(@epreuve[0].matiere_id).titre %>
+							Epreuve : <%= Epreuve.find(@epreuve[0].epreuve_id).titre %>
+						</div>
+						<div class="columns">
+							<div class="column is-9 is-centered">
+								<table  class="table">
+									<thead>
+										<th>Nom</th>
+										<th>Prénom</th>
+										<th>Note</th>
+										<th>Modifier</th>
+									</thead>
+									<tbody>	
+										<% for @note in @epreuve %>
+										<tr>
+											<% @user = User.find(@note.user_id) %>
+										    <td> <%= @user.nom %> </td>
+										    <td> <%= @user.prenom %> </td>
+										    <td> <%= @note.note %> </td>
+										    <td>  </td>
+										</tr>
+										<% end %>
+									</tbody>
+								</table>
+							</div>
+						</div>
+					<% end %>
+				<% end %>
+
+			</div>
 		<% end %>
 
 

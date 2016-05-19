@@ -33,33 +33,4 @@ class ApplicationController < ActionController::Base
         redirect_to users_index_path
     end
 
-    #les méthodes définies si dessous sont protégées et ne peuvent pas être modifiées dans les controlleurs
-    protected
-
-
-    # Fonction custom pour savoir si un user est de type Administrateur
-    def admin?
-        if current_user.kind_of? Administrateur
-            true
-        else
-            false
-        end
-    end
-
-    def enseignant?
-        if current_user.kind_of? Enseignant
-            true
-        else
-            false
-        end
-            
-    end
-
-    def etudiant?
-        if current_user.kind_of? Etudiant
-            true
-        else
-            false
-        end
-    end
 end

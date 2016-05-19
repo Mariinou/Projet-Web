@@ -17,5 +17,11 @@ module Admin
     # def records_per_page
     #   params[:per_page] || 20
     # end
+    
+    rescue_from CanCan::AccessDenied do |exception|
+        flash[:alert] = "Accès refusé !"
+        redirect_to root_path
+    end
+    
   end
 end
