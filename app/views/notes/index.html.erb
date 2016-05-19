@@ -2,6 +2,9 @@
 	<h2> Mes notes </h2>
 	<%if @note_list.empty? %>
 		Aucune note
+		<div class="corner_left">
+			<%= link_to "Accueil", root_path, :class => 'button is-dark' %>
+		</div>
 	<%else%>
 		<% if current_user.kind_of? Etudiant %>
 		<div class="columns space_top-small">
@@ -25,7 +28,7 @@
 			</div>
 		</div>
 		<div class="corner_left">
-  			<%= link_to "Retour", :back, :class => 'button is-dark' %>
+  			<%= link_to "Accueil", root_path, :class => 'button is-dark' %>
 		</div>
 		<% end %>
 

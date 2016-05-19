@@ -2,6 +2,9 @@
 	<h2> Mes épreuves </h2>
 <%if @epreuve_list.empty? %>
 	Aucune épreuve
+	<div class="corner_left">
+		<%= link_to "Accueil", root_path, :class => 'button is-dark' %>
+	</div>
 <%else%>
 	<div class="columns space_top-small">
 		<div class="column is-9 is-centered">

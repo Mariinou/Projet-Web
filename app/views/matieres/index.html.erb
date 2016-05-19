@@ -26,7 +26,7 @@
 		</div>
 	<% end %>
 	<div class="corner_left">
-		<%= link_to "Retour", :back, :class => 'button is-dark' %>
+		<%= link_to "Accueil", root_path, :class => 'button is-dark' %>
 	</div>
 	</div>
 
@@ -35,6 +35,9 @@
 	<h2> Mes matières </h2>
 <%if @matiere_list.empty? %>
 	Aucune matière
+	<div class="corner_left">
+		<%= link_to "Accueil", root_path, :class => 'button is-dark' %>
+	</div>
 <%else%>
 	<div class="columns space_top-small">
 		<div class="column is-9 is-centered">
