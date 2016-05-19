@@ -16,6 +16,15 @@ rake db:setup
 rails s
 ```
 
+Pour faire fonctionner l'envoi d'email il faut ajouter les variables d'environnement 'username' et 'password' correspondant à une adresse gmail.
+
+Pour cela il suffit de faire : (ou ajouter au fichier **~/.bashrc**)
+
+```bash
+export username=monadresse@gmail.com
+export password=monmotdepasse
+```
+
 ## Utilisation 
 
 4 utilisateurs sont créés dans les seed oar défaut:
