@@ -17,13 +17,23 @@ class MatieresController < ApplicationController
     end
 
     def newmatels
+      @flag=true
       params["matels"].each do |matel|
         if matel["user_id"] != "" 
-          UsersMatiere.create(matel.permit(:user_id, :matiere_id))
+          @matel = UsersMatiere.create(matel.permit(:user_id, :matiere_id))
+          if (UsersMatiere.where(user_id: @matel.user_id).where(matiere_id: @matel.matiere_id).count > 1)
+                @matel.destroy
+                @flag=false
+          end
         end
       end
-      flash[:notice] = 'Elèves inscrits avec succès'
-      redirect_to matieres_path
+      if @flag == false
+        flash[:alert] = 'Un élève était déjà inscrit !'
+        redirect_to matieres_path
+      else
+        flash[:notice] = 'Elèves inscrits avec succès'
+        redirect_to matieres_path
+      end
     end
 
     def index
