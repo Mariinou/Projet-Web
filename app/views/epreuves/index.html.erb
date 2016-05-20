@@ -6,6 +6,9 @@
 	<div class="corner_left">
 		<%= link_to "Accueil", root_path, :class => 'button is-dark' %>
 	</div>
+	<% if current_user.kind_of? Enseignant %>
+		   <%= link_to "Ajouter une épreuve",  new_epreuve_path, class: "button is-success corner_right" %>
+	<% end %>
 
 <%else%>
 	<div class="columns space_top-small2">
