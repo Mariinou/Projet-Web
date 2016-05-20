@@ -1,37 +1,16 @@
-ACCUEIL
-
-vérifier si 'se souvenir' lors de la connexion fonctionne
-
-envoi de mail d'oubli de mot de passe
 
 ADMINISTRATEUR
 
 Modifier les formulaires d'administration (choix déroulant pour admin, enseign et etu; suppression des champs inutiles; modification mot de passe)
 
-bug quand changement de type d'utilisateur
 
 ENSEIGNANT
 
-faire page d'erreur pour les pages non accessibles
 
-empècher de changer le type d'utilisateur lors de l'édition d'un compte étudiant
 
-ne donner accès qu'à la page étudiants dans administration
-
-bouton retour de création matière ne fonctionne pas (retour revient à la page précédente, ce n'est pas un lien vers une autre page)
-=> aller à la page d'accueil après ajout de matière ?
-
-message lors de création d'épreuve
-
-page de pour que le prof sélectionne les élèves inscrits dans sa matière
 
 les matières du seeds.db ne sont pas associées à un prof
 
-empècher d'ajouter des notes après qu'elles aient été entrées pour une matière et permettre de modifier les notes déjà entrées
-=> remplacer 'ajouter une note pour cette épreuvre' par 'modifier les notes' ?
 
-bouton supprimer une épreuve ?
-
-affichage des matières (juste celles du prof ?), épreuves (idem), notes (intégré dans affichage des épreuves ?, bouton modifications des notes et suppression épreuve ?)
 
 

@@ -1,12 +1,14 @@
-<div class="space_top">
+<div class="space_top-small">
 	<h2> Mes épreuves </h2>
+	
 <%if @epreuve_list.empty? %>
 	Aucune épreuve
 	<div class="corner_left">
 		<%= link_to "Accueil", root_path, :class => 'button is-dark' %>
 	</div>
+
 <%else%>
-	<div class="columns space_top-small">
+	<div class="columns space_top-small2">
 		<div class="column is-9 is-centered">
 			<table class="overflow-y">
 				<thead>
@@ -14,7 +16,7 @@
 					<th>Matiere</th>
 					<th>Date</th>
 					<% if current_user.kind_of? Enseignant %>
-				    <th>Ajouter une note</th>
+				    	<th>Ajouter une note</th>
 				    <% end %>
 				</thead>
 				<tbody>
@@ -35,12 +37,13 @@
 			</table>
 		</div>
 	</div>
-</br>
-<% if current_user.kind_of? Enseignant %>
-	   <%= link_to "Ajouter une épreuve",  new_epreuve_path, class: "button is-success corner_right" %>
-<% end %>
-<div class="corner_left">
-	<%= link_to "Accueil", root_path, :class => 'button is-dark' %>
+
+	
+	<div class="corner_left">
+		<%= link_to "Accueil", root_path, :class => 'button is-dark' %>
+	</div>
+	<% if current_user.kind_of? Enseignant %>
+		   <%= link_to "Ajouter une épreuve",  new_epreuve_path, class: "button is-success corner_right" %>
+	<% end %>
 </div>
 <%end%>
-</div>

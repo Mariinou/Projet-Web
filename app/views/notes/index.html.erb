@@ -1,43 +1,46 @@
-<div class="space_top">
+<div class="space_top-small">
 	<h2> Mes notes </h2>
 	<%if @note_list.empty? %>
 		Aucune note
 		<div class="corner_left">
 			<%= link_to "Accueil", root_path, :class => 'button is-dark' %>
 		</div>
+
 	<%else%>
+
 		<% if current_user.kind_of? Etudiant %>
-		<div class="columns space_top-small">
-			<div class="column is-9 is-centered">
-				<table  class="table overflow-y">
-					<thead>
-						<th>Matiere</th>
-						<th>Epreuve</th>
-						<th>Note</th>
-					</thead>
-					<tbody>	
-						<% for @note in @note_list %>
-						<tr>
-						    <td> <%= Matiere.find(@note.matiere_id).titre %> </td>
-						    <td> <%= Epreuve.find(@note.epreuve_id).titre %> </td>
-						    <td> <%= @note.note %> </td>
-						</tr>
-						<% end %>
-					</tbody>
-				</table>
+			<div class="columns space_top-small">
+				<div class="column is-9 is-centered">
+					<table  class="table overflow-y">
+						<thead>
+							<th>Matiere</th>
+							<th>Epreuve</th>
+							<th>Note</th>
+						</thead>
+						<tbody>	
+							<% for @note in @note_list %>
+							<tr>
+							    <td> <%= Matiere.find(@note.matiere_id).titre %> </td>
+							    <td> <%= Epreuve.find(@note.epreuve_id).titre %> </td>
+							    <td> <%= @note.note %> </td>
+							</tr>
+							<% end %>
+						</tbody>
+					</table>
+				</div>
 			</div>
-		</div>
-		<div class="corner_left">
-  			<%= link_to "Accueil", root_path, :class => 'button is-dark' %>
-		</div>
+			<div class="corner_left">
+	  			<%= link_to "Accueil", root_path, :class => 'button is-dark' %>
+			</div>
+
 		<% else %>
 			<div class="scrollable" id="scrollable">
 				
 				<% for @epreuve in @note_list %>
 					<%if not(@epreuve.empty?) %>
-						<div class="entete space_top-small">
-							Matière : <%= Matiere.find(@epreuve[0].matiere_id).titre %>
-							Epreuve : <%= Epreuve.find(@epreuve[0].epreuve_id).titre %>
+						<div class="entete ">
+							<%= Matiere.find(@epreuve[0].matiere_id).titre %>
+							-<%= Epreuve.find(@epreuve[0].epreuve_id).titre %>
 						</div>
 						<div class="columns">
 							<div class="column is-9 is-centered">
@@ -55,7 +58,7 @@
 										    <td> <%= @user.nom %> </td>
 										    <td> <%= @user.prenom %> </td>
 										    <td> <%= @note.note %> </td>
-										    <td>  </td>
+										    <td><%= link_to raw("<span class=\"icon\"><i class=\"fa fa-pencil-square\" aria-hidden=\"true\"></i></span><span>Modifier cette note</span>"), edit_note_path(@note), class: "button" %></td>
 										</tr>
 										<% end %>
 									</tbody>
@@ -66,6 +69,9 @@
 				<% end %>
 
 			</div>
+		<div class="corner_left">
+			<%= link_to "Accueil", root_path, :class => 'button is-dark' %>
+		</div>
 		<% end %>
 
 
