@@ -37,7 +37,7 @@
 	
 	<% else %>
 <div class="space_top-small">
-		<h2>Liste des élèves</h2>
+		<h2>Liste des étudiants</h2>
 		<div class="column is-9 is-centered">
 			<table  class="table overflow-y">
 				<thead>
@@ -55,8 +55,7 @@
 		 			<% end %>
 		 		</tbody>
 		 	</table>
-	<div class="corner_right">
-		<%= link_to "Ajouter un étudiant", new_validation_user_path, :class => 'button is-dark' %>
+		<%= link_to "Ajouter un étudiant", new_validation_user_path, class: "button is-success corner_right" %>
 	</div>
 </div>
 	<% end %>
