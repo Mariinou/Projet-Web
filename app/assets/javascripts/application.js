@@ -166,6 +166,7 @@ $(window).resize(function() {
 
 $(document).ready(function() {
 	if ($('.overflow-y').height()<=72) {
-		$('.overflow-y').css("overflow", "hidden");
+		$('.overflow-y').css("overflow-x", "hidden");
+		$('.overflow-y').css("overflow-y", "hidden");
 	}
 });
