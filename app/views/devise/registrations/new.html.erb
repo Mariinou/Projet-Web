@@ -23,7 +23,7 @@
 
     <div class="columns">
       <div class="field is-3 column is-centered">
-        <%= f.password_field :password, autocomplete: "off", placeholder: "Mot de passe", class: "input" %>
+        <%= f.password_field :password, autocomplete: "off", placeholder: "Mot de passe (6 caractères min)", class: "input" %>
       </div>
     </div>
 
@@ -45,13 +45,6 @@
         <%= f.label :type, "Etudiant" %>
       </div>
     </div>
-    <div class="columns">
-      <div class="field is-centered">
-        <%= f.radio_button :type, "Autre" %>
-        <%= f.label :type, "Autre" %>
-      </div>
-    </div>
-
     <div class="columns">
       <div class="actions columns is-centered space_top-small2">
         <%= f.submit "S'inscrire" , class: "button is-warning"%>
