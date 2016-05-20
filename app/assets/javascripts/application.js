@@ -163,3 +163,9 @@ $("#particles-js").height($(document).height());
 $(window).resize(function() {
 	$("#particles-js").height($(document).height());
 });
+
+$(document).ready(function() {
+	if ($('.overflow-y').height()<=72) {
+		$('.overflow-y').css("overflow", "hidden");
+	}
+});
