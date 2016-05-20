@@ -159,7 +159,13 @@ $(document).on('click', '.notification > button.delete', function() {
     return false;
 });
 
-$("#particles-js").height($(document).height());
+// $("#particles-js").height($(document).height());
+$(document).ready(function () {
+	// $("#particles-js").height($(document).height());
+    setTimeout( function(){
+        $("#particles-js").height($(document).height());
+    },1000);
+});
 $(window).resize(function() {
 	$("#particles-js").height($(document).height());
 });
