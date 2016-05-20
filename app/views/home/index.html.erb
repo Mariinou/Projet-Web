@@ -33,36 +33,32 @@
   	
 		<% if current_user.kind_of? Enseignant %>		
 			<div class="columns space_top-small2">
-				<div class="field is-4 column is-centered is-half-mobile is-one-third-tablet is-one-quarter-desktop">
-				<%= link_to "Ajouter une épreuve",  new_epreuve_path, class: "button is-warning" %>
-				</div>
-				<div class="field column is-4 is-centered is-half-mobile is-one-third-tablet is-one-quarter-desktop">
-					<%= link_to "Inscrire un étudiant",  new_validation_user_path, class: "button is-warning" %>
-				</div>
-				<div class="field is-4 column is-centered is-half-mobile is-one-third-tablet is-one-quarter-desktop">
-				<%= link_to "Mes épreuves",  epreuves_path, class: "button is-warning" %>
-				</div>
+					<div class="field column is-4 is-centered is-half-mobile is-one-third-tablet is-one-quarter-desktop">
+						<%= link_to "Inscrire un étudiant",  new_validation_user_path, class: "button is-warning" %>
+					</div>
 			</div>
 			<div class="columns space_top-small2">
 				<div class="field is-4 column is-centered is-half-mobile is-one-third-tablet is-one-quarter-desktop">
-				<%= link_to "Ajouter une matière",  new_matiere_path, class: "button is-warning" %>
-				</div>
-				<div class="field column is-4 is-centered is-8-mobile is-one-third-tablet is-one-quarter-desktop">
-					<%= link_to "Ajouter des étudiants à une matière",  matieres_path, class: "button is-warning " %>
-				</div>
-				<div class="field column is-4 is-centered is-8-mobile is-one-third-tablet is-one-quarter-desktop">
-					<%= link_to "Mes matières",  matieres_path, class: "button is-warning " %>
-				</div>
-			</div>
-			<div class="columns space_top-small2">
-				<div class="field is-4 column is-centered is-half-mobile is-one-third-tablet is-one-quarter-desktop">
-					<%= link_to "Ajouter une note",  epreuves_path, class: "button is-warning" %>
+					<%= link_to "Mes notes enregistrées",  notes_path, class: "button is-warning" %>
 				</div>
 				<div class="field is-4 column is-centered is-half-mobile is-one-third-tablet is-one-quarter-desktop">
 					<%= link_to "Modifier une note",  notes_path, class: "button is-warning" %>
 				</div>
+			</div>
+			<div class="columns space_top-small2">
 				<div class="field is-4 column is-centered is-half-mobile is-one-third-tablet is-one-quarter-desktop">
-					<%= link_to "Mes notes eregistrées",  notes_path, class: "button is-warning" %>
+					<%= link_to "Voir mes épreuves / ajouter les notes d'une épreuve",  epreuves_path, class: "button is-warning" %>
+				</div>
+				<div class="field is-4 column is-centered is-half-mobile is-one-third-tablet is-one-quarter-desktop">
+				<%= link_to "Ajouter une épreuve",  new_epreuve_path, class: "button is-warning" %>
+				</div>
+			</div>
+			<div class="columns space_top-small2">
+				<div class="field column is-4 is-centered is-8-mobile is-one-third-tablet is-one-quarter-desktop">
+					<%= link_to "Voir mes matières / ajouter des étudiants à une matière",  matieres_path, class: "button is-warning " %>
+				</div>
+				<div class="field is-4 column is-centered is-half-mobile is-one-third-tablet is-one-quarter-desktop">
+				<%= link_to "Ajouter une matière",  new_matiere_path, class: "button is-warning" %>
 				</div>
 			</div>
 		<% end %>
